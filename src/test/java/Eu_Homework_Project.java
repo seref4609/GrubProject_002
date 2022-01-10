@@ -59,7 +59,7 @@ public class Eu_Homework_Project {
        WebElement warnTxt= driver.findElement(By.xpath("//small[.='The date of birth is not valid']"));
 
 
-         Assert.assertTrue(warnTxt.isDisplayed());
+       Assert.assertTrue(warnTxt.isDisplayed());
 
 
     }
