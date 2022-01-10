@@ -1,7 +1,9 @@
 import com.github.javafaker.Faker;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -22,7 +24,7 @@ Test case #2
   Step 3. Verify that following options for programming languages are displayed: c++, java, JavaScript */
 
 public class Eu_Homework_Project {
-
+    //Gulizar
     WebDriver driver;
     WebDriverWait wait;
     Faker faker=new Faker();
@@ -52,7 +54,12 @@ public class Eu_Homework_Project {
         driver.findElement(By.name("birthday")).sendKeys("wrong_dob");
 
 
-        //Gulizar
+        //Test1/Step.4 by mahammad
+
+       WebElement warnTxt= driver.findElement(By.xpath("//small[.='The date of birth is not valid']"));
+
+
+       Assert.assertTrue(warnTxt.isDisplayed());
 
 
     }
