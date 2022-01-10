@@ -1,4 +1,5 @@
 import com.github.javafaker.Faker;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterMethod;
@@ -33,6 +34,8 @@ public class Eu_Homework_Project {
         driver.get("https://practice-cybertekschool.herokuapp.com");
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         driver.manage().window().maximize();
+        //busra Step 2. Click on “Registration Form”
+        driver.findElement(By.xpath("//*[text()='Registration Form']")).click();
 
 
     }
@@ -43,8 +46,10 @@ public class Eu_Homework_Project {
     }
 
     @Test
-    public void Test1() {
+    public void test1(){
 
+    //busra Step 3. Enter “wrong_dob” into date of birth input box.
+        driver.findElement(By.name("birthday")).sendKeys("wrong_dob");
 
 
 
