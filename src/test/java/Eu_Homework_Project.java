@@ -44,7 +44,7 @@ public class Eu_Homework_Project {
 
     @AfterMethod
     public void tearDown() {
-       // driver.quit();
+        driver.quit();
     }
 
     @Test
