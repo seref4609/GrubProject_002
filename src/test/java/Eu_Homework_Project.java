@@ -70,6 +70,10 @@ public class Eu_Homework_Project {
     @Test
     public void test2() {
 
+       // Test2/Step1 by Gulizar
+            WebDriver driver = WebDriverFactory.getDriver("chrome");
+            driver.manage().window().maximize();
+            driver.get("https://practicecybertekschool.herokuapp.com");
 
         // Step-3 by Seref
         List<WebElement> programmingElements = driver.findElements(By.cssSelector(".form-check-label"));
@@ -83,5 +87,9 @@ public class Eu_Homework_Project {
 
 
         }
+
+
+        }
+
+
     }
-}
