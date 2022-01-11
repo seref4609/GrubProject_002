@@ -86,6 +86,15 @@ public class Eu_Homework_Project {
 
     }
 
+    @Test
+    public void test3() throws InterruptedException {
+        driver.get("https://practice-cybertekschool.herokuapp.com/");
+        driver.findElement(By.xpath("//*[.='Registration Form']/a")).click();
+        driver.findElement(By.name("firstname")).sendKeys("a");
+        Thread.sleep(3000);
+        String warnText = driver.findElement(By.xpath("//small[.='first name must be more than 2 and less than 64 characters long']")).getText();
+        System.out.println("Warning: " + warnText);
 
+    }
 
 }
