@@ -12,6 +12,8 @@ import utilities.WebDriverFactory;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
+import static org.testng.Assert.assertTrue;
+
 
 
 /*Test case #1
@@ -29,7 +31,8 @@ public class Eu_Homework_Project {
     //Gulizar
     WebDriver driver;
     WebDriverWait wait;
-    Faker faker=new Faker();
+    Faker faker = new Faker();
+
 
     @BeforeMethod
 
@@ -41,60 +44,52 @@ public class Eu_Homework_Project {
         //busra Step 2. Click on “Registration Form”
         driver.findElement(By.xpath("//*[text()='Registration Form']")).click();
 
-
     }
 
     @AfterMethod
     public void tearDown() {
-        driver.quit();
+        //  driver.quit();
     }
 
     @Test
-    public void test1(){
+    public void test1() {
 
-    //busra Step 3. Enter “wrong_dob” into date of birth input box.
+        //busra Step 3. Enter “wrong_dob” into date of birth input box.
         driver.findElement(By.name("birthday")).sendKeys("wrong_dob");
 
 
         //Test1/Step.4 by mahammad
 
-       WebElement warnTxt= driver.findElement(By.xpath("//small[.='The date of birth is not valid']"));
+        WebElement warnTxt = driver.findElement(By.xpath("//small[.='The date of birth is not valid']"));
 
-
-       Assert.assertTrue(warnTxt.isDisplayed());
+        Assert.assertTrue(warnTxt.isDisplayed());
 
 
     }
+
     @Test
-         public void test2(){
-        //orhan Worked on it
-        driver.findElement(By.xpath("//*[.='Registration Form']/a")).click();
-        List<WebElement> checkboxes = driver.findElements(By.xpath("//*[@class='form-check form-check-inline']/label"));
+    public void test2() {
 
-        System.out.println("buttons.size() = " + checkboxes.size());
+       // Test2/Step1 by Gulizar
+            WebDriver driver = WebDriverFactory.getDriver("chrome");
+            driver.manage().window().maximize();
+            driver.get("https://practicecybertekschool.herokuapp.com");
 
-        //verify button size
-        Assert.assertEquals(checkboxes.size(),3,"verify buttons size");
-        //We need to create a loop
+        // Step-3 by Seref
+        List<WebElement> programmingElements = driver.findElements(By.cssSelector(".form-check-label"));
 
-        for(WebElement checkbox:checkboxes){
+        for (WebElement eachcheckbox : programmingElements) {
+            String languageProgramming = eachcheckbox.getText();
 
-            String ComLang = checkbox.getText();
+            System.out.println("Selected programming languages: " + languageProgramming.toString());
+
+            assertTrue(eachcheckbox.isDisplayed(), "verify" + languageProgramming + " is displayed");
 
 
         }
 
-    }
 
-    @Test
-    public void test3() throws InterruptedException {
-        driver.get("https://practice-cybertekschool.herokuapp.com/");
-        driver.findElement(By.xpath("//*[.='Registration Form']/a")).click();
-        driver.findElement(By.name("firstname")).sendKeys("a");
-        Thread.sleep(3000);
-        String warnText = driver.findElement(By.xpath("//small[.='first name must be more than 2 and less than 64 characters long']")).getText();
-        System.out.println("Warning: " + warnText);
+        }
+
 
     }
-
-}
