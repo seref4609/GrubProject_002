@@ -71,10 +71,10 @@ public class Eu_Homework_Project {
     public void test2() {
 
        // Test2/Step1 by Gulizar
-       //
             WebDriver driver = WebDriverFactory.getDriver("chrome");
             driver.manage().window().maximize();
             driver.get("https://practicecybertekschool.herokuapp.com");
+            driver.findElement(By.xpath("//*[.='Registration Form']/a")).click();
 
         // Step-3 by Seref
         List<WebElement> programmingElements = driver.findElements(By.cssSelector(".form-check-label"));
@@ -85,7 +85,6 @@ public class Eu_Homework_Project {
             System.out.println("Selected programming languages: " + languageProgramming.toString());
 
             assertTrue(eachcheckbox.isDisplayed(), "verify" + languageProgramming + " is displayed");
-
 
         }
 
