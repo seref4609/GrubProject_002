@@ -71,6 +71,7 @@ public class Eu_Homework_Project {
     public void test2() {
 
        // Test2/Step1 by Gulizar
+       //
             WebDriver driver = WebDriverFactory.getDriver("chrome");
             driver.manage().window().maximize();
             driver.get("https://practicecybertekschool.herokuapp.com");
