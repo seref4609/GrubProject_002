@@ -8,6 +8,8 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import utilities.WebDriverFactory;
+
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 
@@ -63,4 +65,27 @@ public class Eu_Homework_Project {
 
 
     }
+    @Test
+         public void test2(){
+        //orhan Worked on it
+        driver.findElement(By.xpath("//*[.='Registration Form']/a")).click();
+        List<WebElement> checkboxes = driver.findElements(By.xpath("//*[@class='form-check form-check-inline']/label"));
+
+        System.out.println("buttons.size() = " + checkboxes.size());
+
+        //verify button size
+        Assert.assertEquals(checkboxes.size(),3,"verify buttons size");
+        //We need to create a loop
+
+        for(WebElement checkbox:checkboxes){
+
+            String ComLang = checkbox.getText();
+
+
+        }
+
+    }
+
+
+
 }
